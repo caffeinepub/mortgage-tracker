@@ -1,0 +1,28 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Deploy Version 30 to Production - Frontend Verification",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Verify frontend deployment and version detection for Version 30 production release",
+      "acceptanceCriteria": [
+        "Version 30 is successfully deployed to the production Internet Computer network",
+        "The production deployment is accessible and serving users",
+        "Frontend assets are deployed and accessible via the production URL"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useAppVersion.ts",
+          "operation": "modify",
+          "description": "Verify that the frontend version constant FRONTEND_VERSION matches Version 30 (major: 0, minor: 30, patch: 0, build: 0). Ensure version checking logic properly compares frontend and backend versions to detect mismatches post-deployment. No changes needed if version is already correct."
+        },
+        {
+          "path": "frontend/src/components/UpdateNotification.tsx",
+          "operation": "modify",
+          "description": "Ensure the UpdateNotification component properly displays update prompts if the backend version differs from frontend version after deployment. Verify the refresh handler clears caches and reloads the application. No changes needed if functionality is already present."
+        }
+      ]
+    }
+  ]
+}

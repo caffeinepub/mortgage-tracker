@@ -1,0 +1,40 @@
+{
+  "kind": "build_request",
+  "title": "Deploy application to production",
+  "priority": "high",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Deploy the current draft Version 30 of the Mortgage Tracker application to production",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "Publish"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Version 30 is successfully deployed to the production Internet Computer network",
+        "The production deployment is accessible and serving users",
+        "All backend canisters are upgraded to the latest code",
+        "Frontend assets are deployed and accessible via the production URL"
+      ]
+    }
+  ],
+  "constraints": [
+    "Use the existing draft Version 30 code without modifications",
+    "Preserve all existing user data and state during deployment",
+    "Ensure backend migration maintains data integrity"
+  ],
+  "nonGoals": [
+    "Making code changes or new features",
+    "Modifying the application architecture",
+    "Changing deployment configuration"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

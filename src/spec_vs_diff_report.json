@@ -1,0 +1,64 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-23T18:01:49.298Z",
+  "summary": "The diff shows code-level changes to backend and frontend files (version numbers, features, logic) which directly contradicts the BuildRequest's explicit constraint to 'Use the existing draft Version 30 code without modifications.' The BuildRequest is about deployment operations, not code changes. No deployment artifacts, configuration files, or deployment scripts are present in the diff.",
+  "missing_requirements": [
+    {
+      "id": "REQ-1",
+      "requirement": "Deploy the current draft Version 30 of the Mortgage Tracker application to production",
+      "reason": "No deployment-related changes are present in the diff. A production deployment would require deployment scripts, canister configuration changes, dfx.json updates for mainnet, or deployment artifacts. The diff only shows application code modifications.",
+      "evidence": []
+    },
+    {
+      "id": "REQ-1",
+      "requirement": "Version 30 is successfully deployed to the production Internet Computer network",
+      "reason": "No evidence of production deployment artifacts, mainnet canister IDs, or deployment configuration. Only code changes are present.",
+      "evidence": []
+    },
+    {
+      "id": "REQ-1",
+      "requirement": "All backend canisters are upgraded to the latest code",
+      "reason": "No deployment or upgrade scripts present. Backend code was modified instead of being deployed as-is.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-1",
+      "requirement": "Frontend assets are deployed and accessible via the production URL",
+      "reason": "No deployment configuration or build artifacts for production frontend deployment are present in the diff.",
+      "evidence": []
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Backend application code modifications including data structures, authorization logic, and business logic",
+      "reason": "The BuildRequest explicitly states 'Use the existing draft Version 30 code without modifications' and 'Making code changes or new features' is listed as a non-goal. The backend/main.mo file shows extensive code changes including imports, data types, and function implementations.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "Frontend version number changes and application logic updates",
+      "reason": "The BuildRequest constraint requires deploying existing code without modifications. The diff shows frontend code changes including version numbers (minor: 30), hook logic modifications, and deferred version checking implementation.",
+      "evidence": [
+        "frontend/src/hooks/useAppVersion.ts"
+      ]
+    },
+    {
+      "description": "Updates to frontend file summaries documenting various component changes",
+      "reason": "This indicates application code changes were made, which contradicts the 'without modifications' constraint. The summaries describe logic changes across multiple components.",
+      "evidence": [
+        "frontend-file-summaries.txt"
+      ]
+    }
+  ],
+  "confidence": 0.95,
+  "changed_files": [
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/src/hooks/useAppVersion.ts",
+    "project_state.json"
+  ]
+}
